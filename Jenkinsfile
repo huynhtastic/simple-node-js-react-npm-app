@@ -12,6 +12,12 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'npm install' 
+                sh 'npm install --only=dev'
+            }
+        }
+        stage('Static Code Lint') {
+            steps {
+                sh './node_modules/.bin/eslint src/'
             }
         }
         stage('Test') {
