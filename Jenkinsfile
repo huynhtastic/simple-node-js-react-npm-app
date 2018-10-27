@@ -15,11 +15,6 @@ pipeline {
                 sh 'npm install --only=dev'
             }
         }
-        stage('Static Code Lint') {
-            steps {
-                sh './node_modules/.bin/eslint src/'
-            }
-        }
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
