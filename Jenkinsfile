@@ -1,11 +1,20 @@
 pipeline {
     agent {
-      dockerfile true
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
     }
     environment {
         CI = 'true'
     }
     stages {
+        stage('Setup Environment') {
+            steps {
+                sh 'cp /home/oracle-env'
+                sh 'source oracle-env/oraenv.sh'
+            }
+        }
         stage('Build') { 
             steps {
                 sh 'npm install' 
