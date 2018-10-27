@@ -1,6 +1,6 @@
 pipeline {
     agent {
-      jenkinsfile true
+      dockerfile true
     }
     environment {
         CI = 'true'
