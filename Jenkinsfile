@@ -33,9 +33,10 @@ pipeline {
         }
         stage('Deliver') {
             environment {
-                test='test'
+                test='testt'
             }
             steps {
+                sh 'export asdofpk=$test'
                 sh 'echo $test'
                 sh './jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
