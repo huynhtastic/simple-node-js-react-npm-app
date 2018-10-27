@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Setup Environment') {
             steps {
-                sh 'cp /home/oracle-env .'
+                sh 'cp -r /home/oracle-env .'
                 sh 'source oracle-env/oraenv.sh'
             }
         }
