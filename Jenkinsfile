@@ -7,13 +7,12 @@ pipeline {
     }
     environment {
         CI = 'true'
+        NODE_ORACLEDB_CREDS = credentials('msb-msitm')
     }
     stages {
         stage('Setup Environment') {
             steps {
-                sh 'set +x'
                 sh 'cp -r /home/oracle-env .'
-                sh 'source ./oracle-env/oraenv.sh'
             }
         }
         stage('Build') { 
