@@ -12,7 +12,7 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 sh 'cp -r /home/oracle-env .'
-                sh 'source oracle-env/oraenv.sh'
+                sh 'source ./oracle-env/oraenv.sh'
             }
         }
         stage('Build') { 
